@@ -363,6 +363,7 @@ plugins:
           - COLLABORATOR
           - MEMBER
           - OWNER
+          - ADMIN
   - uses:
     - plugin: https://ubiquibot-command-start-stop-development.ubiquity.workers.dev
       with:
