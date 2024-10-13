@@ -378,3 +378,11 @@ plugins:
           - OWNER
           - MEMBER
           - ADMIN
+  - uses:
+      - plugin: ubiquity-os-marketplace/ubiquity-os-kernel-telegram@development
+        with:
+          botId: 5112548588
+  - uses:
+      - plugin: https://ubiquity-os-telegram-bridge-development.ubiquity.workers.dev
+        with:
+          botId: 5112548588
