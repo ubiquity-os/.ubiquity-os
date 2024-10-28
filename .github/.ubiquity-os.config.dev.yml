@@ -105,7 +105,7 @@ plugins:
                       score: 0.5
                       countWords: true
                     ul:
-                      score: 1
+                      score: 0
                       countWords: true
                     td:
                       score: 0
@@ -117,7 +117,7 @@ plugins:
                       score: 0
                       countWords: false
                     ol:
-                      score: 1
+                      score: 0
                       countWords: true
               - role:
                 - ISSUE_AUTHOR
@@ -173,7 +173,7 @@ plugins:
                       score: 0.5
                       countWords: true
                     ul:
-                      score: 1
+                      score: 0
                       countWords: true
                     td:
                       score: 0
@@ -185,7 +185,7 @@ plugins:
                       score: 0
                       countWords: false
                     ol:
-                      score: 1
+                      score: 0
                       countWords: true
               - role:
                 - ISSUE_CONTRIBUTOR
@@ -240,7 +240,7 @@ plugins:
                       score: 0.5
                       countWords: true
                     ul:
-                      score: 1
+                      score: 0
                       countWords: true
                     td:
                       score: 0
@@ -252,7 +252,7 @@ plugins:
                       score: 0
                       countWords: false
                     ol:
-                      score: 1
+                      score: 0
                       countWords: true
               - role:
                 - PULL_SPECIFICATION
@@ -309,7 +309,7 @@ plugins:
                       score: 0.5
                       countWords: true
                     ul:
-                      score: 1
+                      score: 0
                       countWords: true
                     td:
                       score: 0
@@ -321,7 +321,7 @@ plugins:
                       score: 0
                       countWords: false
                     ol:
-                      score: 1
+                      score: 0
                       countWords: true
             wordCountExponent: 0.85
           permitGeneration:
