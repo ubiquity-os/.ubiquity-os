@@ -356,8 +356,8 @@ plugins:
           collaborator: 1
           contributor: 2
         mergeTimeout:
-          collaborator: "3.5 days"
-          contributor: "7 days"
+          collaborator: "7 days"
+          contributor: "14 days"
         repos:
           monitor: []
           ignore:
