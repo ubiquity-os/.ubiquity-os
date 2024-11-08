@@ -384,6 +384,7 @@ plugins:
           - OWNER
           - MEMBER
           - ADMIN
+        requiredLabelsToStart: ["Priority: 3 (High)", "Priority: 4 (Urgent)", "Priority: 5 (Emergency)"]
   - uses:
       - plugin: ubiquity-os-marketplace/ubiquity-os-kernel-telegram@development
         with:
