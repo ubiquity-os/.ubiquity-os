@@ -189,7 +189,7 @@ plugins:
                       countWords: true
               - role:
                 - ISSUE_CONTRIBUTOR
-                - PULL_CONTRIBUTOR
+                - ISSUE_ASSIGNEE
                 multiplier: 0.25
                 rewards:
                   wordValue: 0.1
@@ -257,7 +257,7 @@ plugins:
               - role:
                 - PULL_SPECIFICATION
                 - PULL_AUTHOR
-                - ISSUE_ASSIGNEE
+                - PULL_CONTRIBUTOR
                 - PULL_ASSIGNEE
                 multiplier: 0
                 rewards:
