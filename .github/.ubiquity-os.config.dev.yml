@@ -54,7 +54,7 @@ plugins:
           formattingEvaluator:
             multipliers:
               - role:
-                - ISSUE_SPECIFICATION
+                  - ISSUE_SPECIFICATION
                 multiplier: 3
                 rewards:
                   wordValue: 0.1
@@ -120,9 +120,9 @@ plugins:
                       score: 0
                       countWords: true
               - role:
-                - ISSUE_AUTHOR
-                - ISSUE_COLLABORATOR
-                - PULL_COLLABORATOR
+                  - ISSUE_AUTHOR
+                  - ISSUE_COLLABORATOR
+                  - PULL_COLLABORATOR
                 multiplier: 1
                 rewards:
                   wordValue: 0.1
@@ -188,8 +188,8 @@ plugins:
                       score: 0
                       countWords: true
               - role:
-                - ISSUE_CONTRIBUTOR
-                - ISSUE_ASSIGNEE
+                  - ISSUE_CONTRIBUTOR
+                  - ISSUE_ASSIGNEE
                 multiplier: 0.25
                 rewards:
                   wordValue: 0.1
@@ -255,10 +255,10 @@ plugins:
                       score: 0
                       countWords: true
               - role:
-                - PULL_SPECIFICATION
-                - PULL_AUTHOR
-                - PULL_CONTRIBUTOR
-                - PULL_ASSIGNEE
+                  - PULL_SPECIFICATION
+                  - PULL_AUTHOR
+                  - PULL_CONTRIBUTOR
+                  - PULL_ASSIGNEE
                 multiplier: 0
                 rewards:
                   wordValue: 0
