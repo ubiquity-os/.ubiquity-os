@@ -396,7 +396,15 @@ plugins:
             - OWNER
             - MEMBER
             - ADMIN
-          requiredLabelsToStart: ["Priority: 3 (High)", "Priority: 4 (Urgent)", "Priority: 5 (Emergency)"]
+          requiredLabelsToStart:
+            - name: "Priority: 1 (Normal)"
+              roles: ['collaborator', 'admin']
+            - name: "Priority: 2 (Medium)"
+              roles: ['collaborator', 'admin']
+            - name: "Priority: 3 (High)"
+              roles: ['collaborator', 'admin']            
+            - name: "Priority: 4 (Urgent)"
+            - name: "Priority: 5 (Emergency)"
   - uses:
       - plugin: ubiquity-os-marketplace/ubiquity-os-kernel-telegram@development
         with:
