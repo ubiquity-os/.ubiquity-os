@@ -402,7 +402,6 @@ plugins:
             - name: "Priority: 2 (Medium)"
               roles: ['collaborator', 'admin']
             - name: "Priority: 3 (High)"
-              roles: ['collaborator', 'admin']            
             - name: "Priority: 4 (Urgent)"
             - name: "Priority: 5 (Emergency)"
   - uses:
