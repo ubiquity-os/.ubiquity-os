@@ -344,7 +344,8 @@ plugins:
           maxAttempts: 10
           delayMs: 1000
   - uses:
-    - plugin: ubiquity-os-marketplace/daemon-disqualifier@development
+    - skipBotEvents: false
+      plugin: ubiquity-os-marketplace/daemon-disqualifier@development
       with:
         warning: "7 days"
         disqualification: "14 days"
