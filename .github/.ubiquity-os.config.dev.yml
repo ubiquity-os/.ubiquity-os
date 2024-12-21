@@ -381,8 +381,8 @@ plugins:
           - COLLABORATOR
           - MEMBER
           - OWNER
-  - skipBotEvents: false
-    uses:
+  - uses:
+      skipBotEvents: false
       - plugin: https://ubiquity-os-command-start-stop-development.ubiquity.workers.dev
         with:
           reviewDelayTolerance: "3 Days"
