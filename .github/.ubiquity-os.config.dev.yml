@@ -12,7 +12,7 @@ plugins:
         taskStaleTimeoutDuration: "30 Days"
         startRequiresWallet: true
         maxConcurrentTasks:
-          collaborator: 2
+          collaborator: 10
           contributor: 2
         emptyWalletText: "Please set your wallet address with the /wallet command first and try again."
         rolesWithReviewAuthority:
@@ -31,6 +31,7 @@ plugins:
             allowedRoles: ['collaborator']
           - name: "Priority: 5 (Emergency)"
             allowedRoles: ['collaborator']        
+        assignedIssueScope: "org"
   - uses:
     - plugin: https://ubiquity-os-command-wallet-development.ubiquity.workers.dev
       with:
@@ -73,16 +74,24 @@ plugins:
         publicAccessControl:
           setLabel: true
           fundExternalClosedIssue: false
+          protectLabels:
+            - priority
+            - price
+            - time
+        globalConfigUpdate:
+          excludeRepos: []
   - uses:
     - plugin: ubiquity-os-marketplace/text-conversation-rewards@development
       skipBotEvents: false
       with:
         logLevel: "debug"
         evmNetworkId: 100
-        evmPrivateEncrypted: "gdo_iiUND1poZaibNme5oUsG1g8RDEmtI41uLgZjxW8WwxnQZb0DHkOBcISuwobxyKEyzeGQC9KzjkWXv0_OCv-kuUHy4myWNIhs4j3odyvh1XUP7pZFeuVEiASmKQBGkzlKRii5dA0liXtHnhciZQi5N8E7-cdOMbA" # https://github.com/ubiquibot/conversation-rewards/pull/111#issuecomment-2348639931
+        evmPrivateEncrypted: "gdo_iiUND1poZaibNme5oUsG1g8RDEmtI41uLgZjxW8WwxnQZb0DHkOBcISuwobxyKEyzeGQC9KzjkWXv0_OCv-kuUHy4myWNIhs4j3odyvh1XUP7pZFeuVEiASmKQBGkzlKRii5dA0liXtHnhciZQi5N8E7-cdOMbA"
         erc20RewardToken: "0xe91D153E0b41518A2Ce8Dd3D7944Fa863463a97d"
         incentives:
           requirePriceLabel: true
+          limitRewards: true
+          collaboratorOnlyPaymentInvocation: true
           contentEvaluator: {}
           userExtractor:
             enabled: true
@@ -387,6 +396,8 @@ plugins:
             - launch-party
             - staging
             - production
+        prioritySpeed: true
+        pullRequestRequired: true
   - uses:
     - plugin: ubiquity-os-marketplace/daemon-merging@development
       with:
@@ -411,12 +422,30 @@ plugins:
       - plugin: ubiquity-os-marketplace/ubiquity-os-kernel-telegram@development
         with:
           botId: 5112548588
+          shouldUseGithubStorage: false
+          storageOwner: "ubiquity-os-marketplace"
+          fuzzySearchThreshold: 0.2
+          aiConfig:
+            kind: "OpenAi"
+            model: "o1-mini"
+            baseUrl: "https://api.openai.com/v1"
+            similarityThreshold: 0.9
   - uses:
       - plugin: https://ubiquity-os-telegram-bridge-development.ubiquity.workers.dev
         with:
           botId: 5112548588
+          shouldUseGithubStorage: false
+          storageOwner: "ubiquity-os-marketplace"
+          fuzzySearchThreshold: 0.2
+          aiConfig:
+            kind: "OpenAi"
+            model: "o1-mini"
+            baseUrl: "https://api.openai.com/v1"
+            similarityThreshold: 0.9
   - uses:
     - plugin: ubiquity-os-marketplace/command-ask@development
       with:
         model: "openai/o1-mini"
         openAiBaseUrl: "https://openrouter.ai/api/v1"
+        similarityThreshold: 0.9
+        maxDepth: 3
