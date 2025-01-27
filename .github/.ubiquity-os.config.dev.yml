@@ -449,3 +449,5 @@ plugins:
         openAiBaseUrl: "https://openrouter.ai/api/v1"
         similarityThreshold: 0.9
         maxDepth: 3
+  - uses:
+    - plugin: ubiquity-os-marketplace/daemon-pull-review
