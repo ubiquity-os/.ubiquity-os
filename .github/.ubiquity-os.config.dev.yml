@@ -97,6 +97,7 @@ plugins:
             enabled: true
             redeemTask: true
           dataPurge: {}
+          reviewIncentivizer: {}
           formattingEvaluator:
             multipliers:
               - role:
