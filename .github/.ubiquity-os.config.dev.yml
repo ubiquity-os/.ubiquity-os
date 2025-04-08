@@ -374,8 +374,8 @@ plugins:
                       score: 0
                       countWords: true
             wordCountExponent: 0.85
-          permitGeneration:
-            enabled: true
+          payment: 
+            automaticTransferMode: false
           githubComment:
             post: true
             debug: false
