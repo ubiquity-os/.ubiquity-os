@@ -32,6 +32,9 @@ plugins:
           - name: "Priority: 5 (Emergency)"
             allowedRoles: ['collaborator']        
         assignedIssueScope: "org"
+        taskAccessControl:
+          usdPriceMax:
+            contributor: -1
   - uses:
     - plugin: https://ubiquity-os-command-wallet-development.ubiquity.workers.dev
       with:
