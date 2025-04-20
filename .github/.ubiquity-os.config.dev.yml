@@ -248,7 +248,7 @@ plugins:
   - uses:
     - plugin: ubiquity-os-marketplace/command-ask@development
       with:
-        model: openai/o1-mini
+        model: deepseek/deepseek-chat-v3-0324:free
         openAiBaseUrl: https://openrouter.ai/api/v1
         similarityThreshold: 0.9
         maxDepth: 3
