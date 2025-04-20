@@ -62,15 +62,22 @@ plugins:
           - ADMIN
         requiredLabelsToStart:
           - name: "Priority: 1 (Normal)"
-            allowedRoles: ['collaborator', 'contributor']          
+            allowedRoles:
+              - collaborator
+              - contributor
           - name: "Priority: 2 (Medium)"
-            allowedRoles: ['collaborator', 'contributor']
+            allowedRoles:
+              - collaborator
+              - contributor
           - name: "Priority: 3 (High)"
-            allowedRoles: ['collaborator']
+            allowedRoles:
+              - collaborator
           - name: "Priority: 4 (Urgent)"
-            allowedRoles: ['collaborator']
+            allowedRoles:
+              - collaborator
           - name: "Priority: 5 (Emergency)"
-            allowedRoles: ['collaborator']        
+            allowedRoles:
+              - collaborator
         assignedIssueScope: "org"
         taskAccessControl:
           usdPriceMax:
@@ -115,13 +122,7 @@ plugins:
             - name: "Priority: 5 (Emergency)"
               collaboratorOnly: false
         basePriceMultiplier: 2
-        publicAccessControl:
-          setLabel: true
-          fundExternalClosedIssue: false
-          protectLabels:
-            - priority
-            - price
-            - time
+        shouldFundContributorClosedIssue: false
         globalConfigUpdate:
           excludeRepos: []
   - uses:
@@ -130,7 +131,7 @@ plugins:
       with:
         logLevel: "debug"
         evmNetworkId: 100
-        evmPrivateEncrypted: "gdo_iiUND1poZaibNme5oUsG1g8RDEmtI41uLgZjxW8WwxnQZb0DHkOBcISuwobxyKEyzeGQC9KzjkWXv0_OCv-kuUHy4myWNIhs4j3odyvh1XUP7pZFeuVEiASmKQBGkzlKRii5dA0liXtHnhciZQi5N8E7-cdOMbA" # https://github.com/ubiquibot/conversation-rewards/pull/111#issuecomment-2348639931
+        evmPrivateEncrypted: "gdo_iiUND1poZaibNme5oUsG1g8RDEmtI41uLgZjxW8WwxnQZb0DHkOBcISuwobxyKEyzeGQC9KzjkWXv0_OCv-kuUHy4myWNIhs4j3odyvh1XUP7pZFeuVEiASmKQBGkzlKRii5dA0liXtHnhciZQi5N8E7-cdOMbA"
         erc20RewardToken: "0xe91D153E0b41518A2Ce8Dd3D7944Fa863463a97d"
         incentives:
           requirePriceLabel: true
@@ -145,32 +146,32 @@ plugins:
               endpoint: https://openrouter.ai/api/v1
               model: deepseek/deepseek-chat-v3-0324:free
           formattingEvaluator:
-              multipliers:
-                - role:
-                    - ISSUE_SPECIFICATION
-                    - ISSUE_AUTHOR
-                    - ISSUE_COLLABORATOR
-                    - PULL_COLLABORATOR
-                  multiplier: 1
-                  rewards:
-                    wordValue: 0.1
-                    html: *tcrHtmlConfig
-                - role:
-                    - ISSUE_CONTRIBUTOR
-                    - ISSUE_ASSIGNEE
-                  multiplier: 0.25
-                  rewards:
-                    wordValue: 0.1
-                    html: *tcrHtmlConfig
-                - role:
-                    - PULL_AUTHOR
-                    - PULL_CONTRIBUTOR
-                    - PULL_ASSIGNEE
-                    - PULL_SPECIFICATION                    
-                  multiplier: 0
-                  rewards:
-                    wordValue: 0
-                    html: *tcrHtmlConfig
+            multipliers:
+              - role:
+                  - ISSUE_SPECIFICATION
+                  - ISSUE_AUTHOR
+                  - ISSUE_COLLABORATOR
+                  - PULL_COLLABORATOR
+                multiplier: 1
+                rewards:
+                  wordValue: 0.1
+                  html: *tcrHtmlConfig
+              - role:
+                  - ISSUE_CONTRIBUTOR
+                  - ISSUE_ASSIGNEE
+                multiplier: 0.25
+                rewards:
+                  wordValue: 0.1
+                  html: *tcrHtmlConfig
+              - role:
+                  - PULL_AUTHOR
+                  - PULL_CONTRIBUTOR
+                  - PULL_ASSIGNEE
+                  - PULL_SPECIFICATION                  
+                multiplier: 0
+                rewards:
+                  wordValue: 0
+                  html: *tcrHtmlConfig
           permitGeneration: {}
           payment: 
             automaticTransferMode: false
@@ -184,14 +185,14 @@ plugins:
     - skipBotEvents: false
       plugin: ubiquity-os-marketplace/daemon-disqualifier@development
       with:
-        warning: "7 days"
-        disqualification: "14 days"
+        warning: 7 days
+        disqualification: 14 days
         eventWhitelist:
-          - "pull_request.review_requested"
-          - "pull_request.ready_for_review"
-          - "pull_request_review_comment.created"
-          - "issue_comment.created"
-          - "push"
+          - pull_request.review_requested
+          - pull_request.ready_for_review
+          - pull_request_review_comment.created
+          - issue_comment.created
+          - push
         watch:
           optOut:
             - ubiquibot
@@ -207,8 +208,8 @@ plugins:
           collaborator: 1
           contributor: 2
         mergeTimeout:
-          collaborator: "3.5 days"
-          contributor: "7 days"
+          collaborator: 3.5 days
+          contributor: 7 days
         repos:
           monitor: []
           ignore:
@@ -221,34 +222,34 @@ plugins:
           - MEMBER
           - OWNER
   - uses:
-      - plugin: ubiquity-os-marketplace/ubiquity-os-kernel-telegram@development
-        with:
-          botId: 5112548588
-          shouldUseGithubStorage: false
-          storageOwner: "ubiquity-os-marketplace"
-          fuzzySearchThreshold: 0.2
-          aiConfig:
-            kind: "OpenAi"
-            model: "o1-mini"
-            baseUrl: "https://api.openai.com/v1"
-            similarityThreshold: 0.9
+    - plugin: ubiquity-os-marketplace/ubiquity-os-kernel-telegram@development
+      with:
+        botId: 5112548588
+        shouldUseGithubStorage: false
+        storageOwner: ubiquity-os-marketplace
+        fuzzySearchThreshold: 0.2
+        aiConfig:
+          kind: OpenAi
+          model: o1-mini
+          baseUrl: https://api.openai.com/v1
+          similarityThreshold: 0.9
   - uses:
-      - plugin: https://ubiquity-os-telegram-bridge-development.ubiquity.workers.dev
-        with:
-          botId: 5112548588
-          shouldUseGithubStorage: false
-          storageOwner: "ubiquity-os-marketplace"
-          fuzzySearchThreshold: 0.2
-          aiConfig:
-            kind: "OpenAi"
-            model: "o1-mini"
-            baseUrl: "https://api.openai.com/v1"
-            similarityThreshold: 0.9
+    - plugin: https://ubiquity-os-telegram-bridge-development.ubiquity.workers.dev
+      with:
+        botId: 5112548588
+        shouldUseGithubStorage: false
+        storageOwner: ubiquity-os-marketplace
+        fuzzySearchThreshold: 0.2
+        aiConfig:
+          kind: OpenAi
+          model: o1-mini
+          baseUrl: https://api.openai.com/v1
+          similarityThreshold: 0.9
   - uses:
     - plugin: ubiquity-os-marketplace/command-ask@development
       with:
-        model: "openai/o1-mini"
-        openAiBaseUrl: "https://openrouter.ai/api/v1"
+        model: deepseek/deepseek-chat-v3-0324:free
+        openAiBaseUrl: https://openrouter.ai/api/v1
         similarityThreshold: 0.9
         maxDepth: 3
   - uses:
