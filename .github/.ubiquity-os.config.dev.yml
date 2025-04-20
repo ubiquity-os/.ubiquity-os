@@ -146,7 +146,6 @@ plugins:
                     - ISSUE_AUTHOR
                     - ISSUE_COLLABORATOR
                     - PULL_COLLABORATOR
-                    - PULL_SPECIFICATION
                   multiplier: 1
                   rewards:
                     wordValue: 0.1
@@ -162,6 +161,7 @@ plugins:
                     - PULL_AUTHOR
                     - PULL_CONTRIBUTOR
                     - PULL_ASSIGNEE
+                    - PULL_SPECIFICATION                    
                   multiplier: 0
                   rewards:
                     wordValue: 0
