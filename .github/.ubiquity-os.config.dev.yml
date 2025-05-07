@@ -46,7 +46,7 @@ plugins:
         warningThreshold: 0.75
         jobMatchingThreshold: 0.75
   - uses:
-    - plugin: https://ubiquity-os-command-start-stop-development.ubiquity.workers.dev
+    - plugin: https://ubiquity-os-command-start-stop-development.azurewebsites.net
       with:
         reviewDelayTolerance: "3 Days"
         taskStaleTimeoutDuration: "30 Days"
