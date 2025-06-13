@@ -253,4 +253,6 @@ plugins:
         similarityThreshold: 0.9
         maxDepth: 3
   - uses:
-    - plugin: ubiquity-os-marketplace/daemon-pull-review
+    - plugin: ubiquity-os-marketplace/daemon-pull-review@development
+  - uses:
+    - plugin: https://command-config-development.deno.dev
