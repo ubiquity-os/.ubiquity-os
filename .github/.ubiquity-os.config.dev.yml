@@ -84,7 +84,7 @@ plugins:
             contributor: -1
             collaborator: Infinity
   - uses:
-    - plugin: https://ubiquity-os-command-wallet-development.ubiquity.workers.dev
+    - plugin: https://command-wallet-development.deno.dev
       with:
         registerWalletWithVerification: false
   - uses:
