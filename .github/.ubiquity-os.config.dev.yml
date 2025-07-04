@@ -40,7 +40,7 @@ tcrHtmlConfig: &tcrHtmlConfig
 
 plugins:
   - uses:
-    - plugin: https://ubiquity-os-comment-vector-embeddings-development.ubiquity.workers.dev
+    - plugin: ubiquity-os-marketplace/text-vector-embeddings@development
       with:
         matchThreshold: 0.95
         warningThreshold: 0.75
@@ -144,7 +144,11 @@ plugins:
           contentEvaluator:
             openAi:
               endpoint: https://openrouter.ai/api/v1
-              model: deepseek/deepseek-chat-v3-0324
+              model: deepseek/deepseek-r1-0528:free
+            multipliers:
+                - role:
+                    - ISSUE_SPECIFICATION
+                  relevance: 1
           formattingEvaluator:
             multipliers:
               - role:
@@ -222,30 +226,6 @@ plugins:
           - MEMBER
           - OWNER
   - uses:
-    - plugin: ubiquity-os-marketplace/ubiquity-os-kernel-telegram@development
-      with:
-        botId: 5112548588
-        shouldUseGithubStorage: false
-        storageOwner: ubiquity-os-marketplace
-        fuzzySearchThreshold: 0.2
-        aiConfig:
-          kind: OpenAi
-          model: o1-mini
-          baseUrl: https://api.openai.com/v1
-          similarityThreshold: 0.9
-  - uses:
-    - plugin: https://ubiquity-os-telegram-bridge-development.ubiquity.workers.dev
-      with:
-        botId: 5112548588
-        shouldUseGithubStorage: false
-        storageOwner: ubiquity-os-marketplace
-        fuzzySearchThreshold: 0.2
-        aiConfig:
-          kind: OpenAi
-          model: o1-mini
-          baseUrl: https://api.openai.com/v1
-          similarityThreshold: 0.9
-  - uses:
     - plugin: ubiquity-os-marketplace/command-ask@development
       with:
         model: deepseek/deepseek-chat-v3-0324:free
@@ -254,5 +234,13 @@ plugins:
         maxDepth: 3
   - uses:
     - plugin: ubiquity-os-marketplace/daemon-pull-review@development
+      with:
+        openRouterAiModel: deepseek/deepseek-r1-0528:free
+        openRouterBaseUrl: https://openrouter.ai/api/v1
+        tokenLimit:
+          context: 200000
+          completion: 4096
   - uses:
     - plugin: https://command-config-development.deno.dev
+  - uses:
+    - plugin: ubiquity-os-marketplace/personal-agent-bridge@development
