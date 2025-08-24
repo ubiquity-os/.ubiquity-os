@@ -139,7 +139,8 @@ plugins:
             collaboratorOnlyPaymentInvocation: true
             userExtractor:
               redeemTask: true
-            dataPurge: {}
+            dataPurge:
+              skipCommentsWhileAssigned: "exact"
             reviewIncentivizer: {}
             contentEvaluator:
               openAi:
