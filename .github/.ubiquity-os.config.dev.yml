@@ -40,17 +40,12 @@ tcrHtmlConfig: &tcrHtmlConfig
 
 plugins:
   - uses:
-      - plugin: ubiquity-os-marketplace/text-vector-embeddings@development
-        with:
-          matchThreshold: 0.95
-          warningThreshold: 0.75
-          jobMatchingThreshold: 0.75
-  - uses:
       - plugin: https://command-start-stop-develop.deno.dev
         with:
           reviewDelayTolerance: "3 Days"
           taskStaleTimeoutDuration: "30 Days"
           startRequiresWallet: true
+          assignedIssueScope: "org"
           maxConcurrentTasks:
             collaborator: 2
             contributor: 2
@@ -78,7 +73,6 @@ plugins:
             - name: "Priority: 5 (Emergency)"
               allowedRoles:
                 - collaborator
-          assignedIssueScope: "org"
           taskAccessControl:
             usdPriceMax:
               contributor: -1
@@ -88,9 +82,18 @@ plugins:
         with:
           registerWalletWithVerification: false
   - uses:
+      - plugin: ubiquity-os-marketplace/command-ask@development
+        with:
+          model: deepseek/deepseek-chat-v3-0324:free
+          openRouterBaseUrl: https://openrouter.ai/api/v1
+          similarityThreshold: 0.9
+          maxDepth: 3
+  - uses:
       - plugin: https://command-query-development.deno.dev
         with:
           allowPublicQuery: true
+  - uses:
+      - plugin: https://command-config-development.deno.dev
   - uses:
       - plugin: https://daemon-pricing-development.deno.dev
         with:
@@ -125,9 +128,9 @@ plugins:
           shouldFundContributorClosedIssue: false
           globalConfigUpdate:
             excludeRepos: []
-  - uses:
+  - skipBotEvents: false
+    uses:
       - plugin: ubiquity-os-marketplace/text-conversation-rewards@development
-        skipBotEvents: false
         with:
           rewards:
             evmNetworkId: 100
@@ -191,9 +194,9 @@ plugins:
           dataCollection:
             maxAttempts: 10
             delayMs: 1000
-  - uses:
-      - skipBotEvents: false
-        plugin: ubiquity-os-marketplace/daemon-disqualifier@development
+  - skipBotEvents: false
+    uses:
+      - plugin: ubiquity-os-marketplace/daemon-disqualifier@development
         with:
           warning: 7 days
           disqualification: 14 days
@@ -232,12 +235,14 @@ plugins:
             - MEMBER
             - OWNER
   - uses:
-      - plugin: ubiquity-os-marketplace/command-ask@development
+      - plugin: ubiquity-os-marketplace/text-vector-embeddings@development
         with:
-          model: deepseek/deepseek-chat-v3-0324:free
-          openRouterBaseUrl: https://openrouter.ai/api/v1
-          similarityThreshold: 0.9
-          maxDepth: 3
+          matchThreshold: 0.95
+          warningThreshold: 0.75
+          jobMatchingThreshold: 0.75
+          alwaysRecommend: 0
+  - uses:
+      - plugin: ubiquity-os-marketplace/personal-agent-bridge@development
   - uses:
       - plugin: ubiquity-os-marketplace/daemon-pull-review@development
         with:
@@ -246,7 +251,3 @@ plugins:
           tokenLimit:
             context: 200000
             completion: 4096
-  - uses:
-      - plugin: https://command-config-development.deno.dev
-  - uses:
-      - plugin: ubiquity-os-marketplace/personal-agent-bridge@development
