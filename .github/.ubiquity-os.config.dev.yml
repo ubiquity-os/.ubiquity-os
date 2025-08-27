@@ -212,6 +212,7 @@ plugins:
               skipCommentsWhileAssigned: "exact"
             reviewIncentivizer: {}
             contentEvaluator:
+              enabled: true
               openAi:
                 endpoint: https://openrouter.ai/api/v1
                 model: google/gemini-2.5-flash
@@ -252,8 +253,10 @@ plugins:
                     wordValue: 0
                     html: *tcrHtmlConfig
             permitGeneration: {}
+            simplificationIncentivizer: {}
             payment:
               automaticTransferMode: false
+            reviewIncentivizer: {}
             githubComment:
               post: true
               debug: false
