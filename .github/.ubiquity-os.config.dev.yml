@@ -134,8 +134,7 @@ plugins:
       - plugin: https://command-wallet-development.deno.dev
         with:
           registerWalletWithVerification: false
-  - skipBotEvents: false
-    uses:
+  - uses:
       - plugin: ubiquity-os-marketplace/daemon-disqualifier@development
         with:
           warning: 7 days
@@ -194,8 +193,7 @@ plugins:
             completion: 4096
   - uses:
       - plugin: ubiquity-os-marketplace/personal-agent-bridge@development
-  - skipBotEvents: false
-    uses:
+  - uses:
       - plugin: ubiquity-os-marketplace/text-conversation-rewards@development
         with:
           rewards:
