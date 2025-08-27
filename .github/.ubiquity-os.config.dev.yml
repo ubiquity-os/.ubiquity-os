@@ -208,7 +208,6 @@ plugins:
               redeemTask: true
             dataPurge:
               skipCommentsWhileAssigned: "exact"
-            reviewIncentivizer: {}
             contentEvaluator:
               enabled: true
               openAi:
