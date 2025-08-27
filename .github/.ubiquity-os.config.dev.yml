@@ -84,7 +84,7 @@ plugins:
   - uses:
       - plugin: ubiquity-os-marketplace/command-ask@development
         with:
-          model: deepseek/deepseek-chat-v3-0324:free
+          model: google/gemini-2.5-flash
           openRouterBaseUrl: https://openrouter.ai/api/v1
           similarityThreshold: 0.9
           maxDepth: 3
@@ -148,16 +148,16 @@ plugins:
             contentEvaluator:
               openAi:
                 endpoint: https://openrouter.ai/api/v1
-                model: deepseek/deepseek-chat-v3-0324:free
+                model: google/gemini-2.5-flash
               multipliers:
                 - role:
                     - ISSUE_SPECIFICATION
                   relevance: 1
             externalContent:
               llmImageModel:
-                model: meta-llama/llama-3.2-11b-vision-instruct:free
+                model: openai/gpt-4o
               llmWebsiteModel:
-                model: deepseek/deepseek-chat-v3-0324:free
+                model: google/gemini-2.5-flash
             formattingEvaluator:
               multipliers:
                 - role:
@@ -246,7 +246,7 @@ plugins:
   - uses:
       - plugin: ubiquity-os-marketplace/daemon-pull-review@development
         with:
-          openRouterAiModel: deepseek/deepseek-r1-0528:free
+          openRouterAiModel: google/gemini-2.5-flash
           openRouterBaseUrl: https://openrouter.ai/api/v1
           tokenLimit:
             context: 200000
