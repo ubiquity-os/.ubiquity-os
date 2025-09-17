@@ -183,14 +183,14 @@ plugins:
           shouldFundContributorClosedIssue: false
           globalConfigUpdate:
             excludeRepos: []
-  - uses:
-      - plugin: ubiquity-os-marketplace/daemon-pull-review@development
-        with:
-          openRouterAiModel: google/gemini-2.5-flash
-          openRouterBaseUrl: https://openrouter.ai/api/v1
-          tokenLimit:
-            context: 200000
-            completion: 4096
+  # - uses:
+  #     - plugin: ubiquity-os-marketplace/daemon-pull-review@development
+  #       with:
+  #         openRouterAiModel: google/gemini-2.5-flash
+  #         openRouterBaseUrl: https://openrouter.ai/api/v1
+  #         tokenLimit:
+  #           context: 200000
+  #           completion: 4096
   - uses:
       - plugin: ubiquity-os-marketplace/personal-agent-bridge@development
   - uses:
@@ -198,7 +198,7 @@ plugins:
         with:
           rewards:
             evmNetworkId: 100
-            evmPrivateEncrypted: "gdo_iiUND1poZaibNme5oUsG1g8RDEmtI41uLgZjxW8WwxnQZb0DHkOBcISuwobxyKEyzeGQC9KzjkWXv0_OCv-kuUHy4myWNIhs4j3odyvh1XUP7pZFeuVEiASmKQBGkzlKRii5dA0liXtHnhciZQi5N8E7-cdOMbA"
+            evmPrivateEncrypted: "gdo_iiUND1poZaibNme5oUsG1g8RDEmtI41uLgZjxW8WwxnQZb0DHkOBcISuwobxyKEyzeGQC9KzjkWXv0_OCv-kuUHy4myWNIhs4j0odyvh1XUP7pZFeuVEiASmKQBGkzlKRii5dA0liXtHnhciZQi5N8E7-cdOMbA"
             # erc20RewardToken: "0xe91D153E0b41518A2Ce8Dd3D7944Fa863463a97d"
           incentives:
             requirePriceLabel: true
