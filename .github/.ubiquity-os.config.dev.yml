@@ -1,3 +1,74 @@
+zeroTrue: &zeroTrue
+  score: 0
+  countWords: true
+zeroFalse: &zeroFalse
+  score: 0
+  countWords: false
+oneTrue: &oneTrue
+  score: 1
+  countWords: true
+oneFalse: &oneFalse
+  score: 1
+  countWords: false
+allRoles: &allRoles
+  - collaborator
+  - contributor
+collaboratorOnly: &collaboratorOnly
+  - collaborator
+teamMembersOnly: &teamMembersOnly
+  - COLLABORATOR
+  - OWNER
+  - MEMBER
+  - ADMIN
+timeLabels: &timeLabels
+  - name: "Time: <15 Minutes"
+    collaboratorOnly: false
+  - name: "Time: <1 Hour"
+    collaboratorOnly: false
+  - name: "Time: <2 Hours"
+    collaboratorOnly: false
+  - name: "Time: <4 Hours"
+    collaboratorOnly: false
+  - name: "Time: <1 Day"
+    collaboratorOnly: false
+  - name: "Time: <1 Week"
+    collaboratorOnly: false
+priorityLabels: &priorityLabels
+  - name: "Priority: 0 (Regression)"
+    collaboratorOnly: false
+  - name: "Priority: 1 (Normal)"
+    collaboratorOnly: false
+  - name: "Priority: 2 (Medium)"
+    collaboratorOnly: false
+  - name: "Priority: 3 (High)"
+    collaboratorOnly: false
+  - name: "Priority: 4 (Urgent)"
+    collaboratorOnly: false
+  - name: "Priority: 5 (Emergency)"
+    collaboratorOnly: false
+tcrHtmlConfig: &tcrHtmlConfig
+  a: *oneTrue
+  code: *oneFalse
+  img: *oneFalse
+  h1: *oneTrue
+  h2: *oneTrue
+  h3: *oneTrue
+  h4: *oneTrue
+  h5: *oneTrue
+  h6: *oneTrue
+  br: *zeroTrue
+  p: *zeroTrue
+  em: *zeroTrue
+  ul: *zeroTrue
+  td: *zeroTrue
+  hr: *zeroTrue
+  ol: *zeroTrue
+  pre: *zeroFalse
+  strong: *zeroFalse
+  blockquote: *zeroFalse
+  li:
+    score: 0.1
+    countWords: true
 plugins:
   ubiquity-os-marketplace/command-ask@development:
     with:
