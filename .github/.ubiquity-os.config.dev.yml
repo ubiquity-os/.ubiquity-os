@@ -258,3 +258,4 @@ plugins:
       alwaysRecommend: 0
   ubiquity-os-marketplace/daemon-spec-rewriter@development:
 
+  https://daemon-xp-development.deno.dev:
