@@ -186,6 +186,10 @@ plugins:
         evmPrivateEncrypted: "gdo_iiUND1poZaibNme5oUsG1g8RDEmtI41uLgZjxW8WwxnQZb0DHkOBcISuwobxyKEyzeGQC9KzjkWXv0_OCv-kuUHy4myWNIhs4j3odyvh1XUP7pZFeuVEiASmKQBGkzlKRii5dA0liXtHnhciZQi5N8E7-cdOMbA"
         # erc20RewardToken: "0xe91D153E0b41518A2Ce8Dd3D7944Fa863463a97d"
       incentives:
+        eventIncentives:
+          pull_request_review_comment.created:
+            wordValue: 0.1
+            html: *tcrHtmlConfig
         requirePriceLabel: true
         limitRewards: true
         collaboratorOnlyPaymentInvocation: true
