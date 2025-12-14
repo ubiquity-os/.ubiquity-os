@@ -252,7 +252,7 @@ plugins:
         delayMs: 1000
   ubiquity-os-marketplace/text-vector-embeddings@development:
     with:
-      matchThreshold: 0.95
+      matchThreshold: 0.8
       warningThreshold: 0.75
       jobMatchingThreshold: 0.8
       alwaysRecommend: 0
