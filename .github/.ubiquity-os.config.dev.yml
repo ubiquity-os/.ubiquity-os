@@ -194,7 +194,7 @@ plugins:
           openAi:
             endpoint: https://openrouter.ai/api/v1
             model:
-              name: google/gemini-2.5-flash
+              name: gpt-5.2
           multipliers:
             - role:
                 - ISSUE_SPECIFICATION
@@ -205,7 +205,7 @@ plugins:
               name: openai/gpt-4o
           llmWebsiteModel:
             model:
-              name: google/gemini-2.5-flash
+              name: gpt-5.2
         userExtractor:
           redeemTask: true
         dataPurge:
