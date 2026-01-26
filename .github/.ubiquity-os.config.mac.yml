@@ -1,3 +1,8 @@
   imports:
     - ubiquity-os/.ubiquity-os@dev
-  plugins: {}
+  plugins: 
+    ubiquity-os-marketplace/command-config@chore/update-plugin-sdk:
+    with:
+      model: gpt-5.2-codex
+      reasoningLevel: xhigh
+      
