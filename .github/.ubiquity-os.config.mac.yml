@@ -2,7 +2,6 @@
     - ubiquity-os/.ubiquity-os@dev
   plugins: 
     ubiquity-os-marketplace/command-config@chore/update-plugin-sdk:
-    with:
-      model: gpt-5.2-codex
-      reasoningEffort: xhigh
-      
+      with:
+        model: gpt-5.2-codex
+        reasoningEffort: xhigh
