@@ -1,0 +1,3 @@
+  imports:
+    - ubiquity-os/.ubiquity-os@dev
+  plugins: {}
